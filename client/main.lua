@@ -120,7 +120,7 @@ function OpenCloakroomMenu()
             end)
         end
         if data.current.value == 'barman_outfit' then
-            ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+            TriggerEvent('skinchanger:getSkin', function(skin)
         
                 if skin.sex == 0 then
 
@@ -163,7 +163,7 @@ function OpenCloakroomMenu()
         end
         if data.current.value == 'dancer_outfit_1' then
 
-            ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+            TriggerEvent('skinchanger:getSkin', function(skin)
 
                 local playerPed = GetPlayerPed(-1)
 
@@ -217,7 +217,7 @@ function OpenCloakroomMenu()
         end
         if data.current.value == 'dancer_outfit_2' then
             
-            ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+            TriggerEvent('skinchanger:getSkin', function(skin)
 
                 local playerPed = GetPlayerPed(-1)
 
@@ -272,7 +272,7 @@ function OpenCloakroomMenu()
         end
         if data.current.value == 'dancer_outfit_3' then
 
-            ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+            TriggerEvent('skinchanger:getSkin', function(skin)
 
                 local playerPed = GetPlayerPed(-1)
 
@@ -327,7 +327,7 @@ function OpenCloakroomMenu()
         end
         if data.current.value == 'dancer_outfit_4' then
 
-            ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+            TriggerEvent('skinchanger:getSkin', function(skin)
 
                 local playerPed = GetPlayerPed(-1)
 
@@ -382,7 +382,7 @@ function OpenCloakroomMenu()
         end
         if data.current.value == 'dancer_outfit_5' then
             
-            ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+            TriggerEvent('skinchanger:getSkin', function(skin)
 
                 local playerPed = GetPlayerPed(-1)
 
@@ -437,7 +437,7 @@ function OpenCloakroomMenu()
         end
         if data.current.value == 'dancer_outfit_6' then
             
-            ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+            TriggerEvent('skinchanger:getSkin', function(skin)
 
                 local playerPed = GetPlayerPed(-1)
 
@@ -492,7 +492,7 @@ function OpenCloakroomMenu()
         end
         if data.current.value == 'dancer_outfit_7' then
             
-            ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+            TriggerEvent('skinchanger:getSkin', function(skin)
 
                 local playerPed = GetPlayerPed(-1)
 
