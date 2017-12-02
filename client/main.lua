@@ -121,16 +121,36 @@ function OpenCloakroomMenu()
         end
         if data.current.value == 'barman_outfit' then
             ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-              local playerPed = GetPlayerPed(-1)
-              if skin.sex == 0 then
-                SetPedComponentVariation(playerPed, 8, 15, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 40, 0, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 5, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 61, 6, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 37, 0, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 11, 2, 0) --Collier
+        
+                if skin.sex == 0 then
 
+                    local clothesSkin = {
+                        ['tshirt_1'] = 15, ['tshirt_2'] = 0,
+                        ['torso_1'] = 40, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 40,
+                        ['pants_1'] = 28, ['pants_2'] = 2,
+                        ['shoes_1'] = 38, ['shoes_2'] = 4,
+                        ['chain_1'] = 118, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                else
+
+                    local clothesSkin = {
+                        ['tshirt_1'] = 3, ['tshirt_2'] = 0,
+                        ['torso_1'] = 8, ['torso_2'] = 2,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 5,
+                        ['pants_1'] = 44, ['pants_2'] = 4,
+                        ['shoes_1'] = 0, ['shoes_2'] = 0,
+                        ['chain_1'] = 0, ['chain_2'] = 2
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                end
+
+                local playerPed = GetPlayerPed(-1)
                 ClearPedBloodDamage(playerPed)
                 ResetPedVisibleDamage(playerPed)
                 ClearPedLastWeaponDamage(playerPed)
@@ -138,268 +158,392 @@ function OpenCloakroomMenu()
                 ResetPedMovementClipset(playerPed, 0)
 
                 isBarman = true
-              else
-                SetPedComponentVariation(playerPed, 8, 3, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 8, 2, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 5, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 44, 4, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 0, 0, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 0, 0, 0) --Collier
 
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
-
-                ResetPedMovementClipset(playerPed, 0)
-
-                isBarman = true
-              end
             end)
         end
         if data.current.value == 'dancer_outfit_1' then
+
             ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-              local playerPed = GetPlayerPed(-1)
-              if skin.sex == 0 then
-                SetPedComponentVariation(playerPed, 8, 15, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 15, 0, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 40, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 61, 9, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 16, 9, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 118, 0, 0) --Collier
+
+                local playerPed = GetPlayerPed(-1)
+
+                if skin.sex == 0 then
+
+                    local clothesSkin = {
+                        ['tshirt_1'] = 15, ['tshirt_2'] = 0,
+                        ['torso_1'] = 15, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 40,
+                        ['pants_1'] = 61, ['pants_2'] = 9,
+                        ['shoes_1'] = 16, ['shoes_2'] = 9,
+                        ['chain_1'] = 118, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_M@POSH@")
+                    while not HasAnimSetLoaded("MOVE_M@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_M@POSH@", true)
+
+                else
+
+                    local clothesSkin = {
+                        ['tshirt_1'] = 3, ['tshirt_2'] = 0,
+                        ['torso_1'] = 22, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 4,
+                        ['pants_1'] = 22, ['pants_2'] = 0,
+                        ['shoes_1'] = 18, ['shoes_2'] = 0,
+                        ['chain_1'] = 61, ['chain_2'] = 1
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_F@POSH@")
+                    while not HasAnimSetLoaded("MOVE_F@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
+                end
 
                 ClearPedBloodDamage(playerPed)
                 ResetPedVisibleDamage(playerPed)
                 ClearPedLastWeaponDamage(playerPed)
 
-                RequestAnimSet("MOVE_M@POSH@")
-                while not HasAnimSetLoaded("MOVE_M@POSH@") do
-                  Citizen.Wait(0)
-                end
-                SetPedMovementClipset(playerPed, "MOVE_M@POSH@", true)
-
                 isBarman = false
-              else
-                SetPedComponentVariation(playerPed, 8, 3, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 22, 0, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 4, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 22, 0, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 18, 0, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 61, 1, 0) --Collier
 
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
-
-                RequestAnimSet("MOVE_F@POSH@")
-                while not HasAnimSetLoaded("MOVE_F@POSH@") do
-                  Citizen.Wait(0)
-                end
-                SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
-
-                isBarman = false
-              end
             end)
         end
         if data.current.value == 'dancer_outfit_2' then
+            
             ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-              local playerPed = GetPlayerPed(-1)
-              if skin.sex == 0 then
-                TriggerEvent('skinchanger:loadSkin', skin)
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
 
-                isBarman = false
-              else
-                SetPedComponentVariation(playerPed, 8, 3, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 22, 2, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 4, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 20, 2, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 18, 2, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 0, 0, 0) --Collier
+                local playerPed = GetPlayerPed(-1)
 
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
+                if skin.sex == 0 then
 
-                RequestAnimSet("MOVE_F@POSH@")
-                while not HasAnimSetLoaded("MOVE_F@POSH@") do
-                  Citizen.Wait(0)
+                    local clothesSkin = {
+                        ['tshirt_1'] = 15, ['tshirt_2'] = 0,
+                        ['torso_1'] = 15, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 40,
+                        ['pants_1'] = 61, ['pants_2'] = 9,
+                        ['shoes_1'] = 16, ['shoes_2'] = 9,
+                        ['chain_1'] = 118, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_M@POSH@")
+                    while not HasAnimSetLoaded("MOVE_M@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_M@POSH@", true)
+
+                else
+
+                    local clothesSkin = {
+                        ['tshirt_1'] = 3, ['tshirt_2'] = 0,
+                        ['torso_1'] = 22, ['torso_2'] = 2,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 4,
+                        ['pants_1'] = 20, ['pants_2'] = 2,
+                        ['shoes_1'] = 18, ['shoes_2'] = 2,
+                        ['chain_1'] = 0, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_F@POSH@")
+                    while not HasAnimSetLoaded("MOVE_F@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
                 end
-                SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
+                ClearPedBloodDamage(playerPed)
+                ResetPedVisibleDamage(playerPed)
+                ClearPedLastWeaponDamage(playerPed)
 
                 isBarman = false
-              end
+
             end)
+
         end
         if data.current.value == 'dancer_outfit_3' then
+
             ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-              local playerPed = GetPlayerPed(-1)
-              if skin.sex == 0 then
-                TriggerEvent('skinchanger:loadSkin', skin)
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
 
-                isBarman = false
-              else
-                SetPedComponentVariation(playerPed, 8, 3, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 22, 1, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 15, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 19, 1, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 19, 3, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 0, 0, 0) --Collier
+                local playerPed = GetPlayerPed(-1)
 
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
+                if skin.sex == 0 then
 
-                RequestAnimSet("MOVE_F@POSH@")
-                while not HasAnimSetLoaded("MOVE_F@POSH@") do
-                  Citizen.Wait(0)
+                    local clothesSkin = {
+                        ['tshirt_1'] = 15, ['tshirt_2'] = 0,
+                        ['torso_1'] = 15, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 40,
+                        ['pants_1'] = 61, ['pants_2'] = 9,
+                        ['shoes_1'] = 16, ['shoes_2'] = 9,
+                        ['chain_1'] = 118, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_M@POSH@")
+                    while not HasAnimSetLoaded("MOVE_M@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_M@POSH@", true)
+
+                else
+
+                    local clothesSkin = {
+                        ['tshirt_1'] = 3, ['tshirt_2'] = 0,
+                        ['torso_1'] = 22, ['torso_2'] = 1,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 15,
+                        ['pants_1'] = 19, ['pants_2'] = 1,
+                        ['shoes_1'] = 19, ['shoes_2'] = 3,
+                        ['chain_1'] = 0, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_F@POSH@")
+                    while not HasAnimSetLoaded("MOVE_F@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
                 end
-                SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
+                ClearPedBloodDamage(playerPed)
+                ResetPedVisibleDamage(playerPed)
+                ClearPedLastWeaponDamage(playerPed)
 
                 isBarman = false
-              end
+
             end)
+
         end
         if data.current.value == 'dancer_outfit_4' then
+
             ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-              local playerPed = GetPlayerPed(-1)
-              if skin.sex == 0 then
-                TriggerEvent('skinchanger:loadSkin', skin)
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
 
-                isBarman = false
-              else
-                SetPedComponentVariation(playerPed, 8, 3, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 82, 0, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 15, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 63, 11, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 41, 11, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 0, 0, 0) --Collier
+                local playerPed = GetPlayerPed(-1)
 
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
+                if skin.sex == 0 then
 
-                RequestAnimSet("MOVE_F@POSH@")
-                while not HasAnimSetLoaded("MOVE_F@POSH@") do
-                  Citizen.Wait(0)
+                    local clothesSkin = {
+                        ['tshirt_1'] = 15, ['tshirt_2'] = 0,
+                        ['torso_1'] = 15, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 40,
+                        ['pants_1'] = 61, ['pants_2'] = 9,
+                        ['shoes_1'] = 16, ['shoes_2'] = 9,
+                        ['chain_1'] = 118, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_M@POSH@")
+                    while not HasAnimSetLoaded("MOVE_M@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_M@POSH@", true)
+
+                else
+
+                    local clothesSkin = {
+                        ['tshirt_1'] = 3, ['tshirt_2'] = 0,
+                        ['torso_1'] = 82, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 15,
+                        ['pants_1'] = 63, ['pants_2'] = 11,
+                        ['shoes_1'] = 41, ['shoes_2'] = 11,
+                        ['chain_1'] = 0, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_F@POSH@")
+                    while not HasAnimSetLoaded("MOVE_F@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
                 end
-                SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
+                ClearPedBloodDamage(playerPed)
+                ResetPedVisibleDamage(playerPed)
+                ClearPedLastWeaponDamage(playerPed)
 
                 isBarman = false
-              end
+
             end)
+
         end
         if data.current.value == 'dancer_outfit_5' then
+            
             ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-              local playerPed = GetPlayerPed(-1)
-              if skin.sex == 0 then
-                TriggerEvent('skinchanger:loadSkin', skin)
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
 
-                isBarman = false
-              else
-                SetPedComponentVariation(playerPed, 8, 3, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 13, 5, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 15, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 63, 2, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 41, 2, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 0, 0, 0) --Collier
+                local playerPed = GetPlayerPed(-1)
 
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
+                if skin.sex == 0 then
 
-                RequestAnimSet("MOVE_F@POSH@")
-                while not HasAnimSetLoaded("MOVE_F@POSH@") do
-                  Citizen.Wait(0)
+                    local clothesSkin = {
+                        ['tshirt_1'] = 15, ['tshirt_2'] = 0,
+                        ['torso_1'] = 15, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 40,
+                        ['pants_1'] = 61, ['pants_2'] = 9,
+                        ['shoes_1'] = 16, ['shoes_2'] = 9,
+                        ['chain_1'] = 118, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_M@POSH@")
+                    while not HasAnimSetLoaded("MOVE_M@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_M@POSH@", true)
+
+                else
+
+                    local clothesSkin = {
+                        ['tshirt_1'] = 3, ['tshirt_2'] = 0,
+                        ['torso_1'] = 15, ['torso_2'] = 5,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 15,
+                        ['pants_1'] = 63, ['pants_2'] = 2,
+                        ['shoes_1'] = 41, ['shoes_2'] = 2,
+                        ['chain_1'] = 0, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_F@POSH@")
+                    while not HasAnimSetLoaded("MOVE_F@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
                 end
-                SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
+                ClearPedBloodDamage(playerPed)
+                ResetPedVisibleDamage(playerPed)
+                ClearPedLastWeaponDamage(playerPed)
 
                 isBarman = false
-              end
+
             end)
+
         end
         if data.current.value == 'dancer_outfit_6' then
+            
             ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-              local playerPed = GetPlayerPed(-1)
-              if skin.sex == 0 then
-                TriggerEvent('skinchanger:loadSkin', skin)
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
 
-                isBarman = false
-              else
-                SetPedComponentVariation(playerPed, 8, 3, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 18, 3, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 15, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 63, 10, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 41, 10, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 0, 0, 0) --Collier
+                local playerPed = GetPlayerPed(-1)
 
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
+                if skin.sex == 0 then
 
-                RequestAnimSet("MOVE_F@POSH@")
-                while not HasAnimSetLoaded("MOVE_F@POSH@") do
-                  Citizen.Wait(0)
+                    local clothesSkin = {
+                        ['tshirt_1'] = 15, ['tshirt_2'] = 0,
+                        ['torso_1'] = 15, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 40,
+                        ['pants_1'] = 61, ['pants_2'] = 9,
+                        ['shoes_1'] = 16, ['shoes_2'] = 9,
+                        ['chain_1'] = 118, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_M@POSH@")
+                    while not HasAnimSetLoaded("MOVE_M@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_M@POSH@", true)
+
+                else
+
+                    local clothesSkin = {
+                        ['tshirt_1'] = 3, ['tshirt_2'] = 0,
+                        ['torso_1'] = 18, ['torso_2'] = 3,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 15,
+                        ['pants_1'] = 63, ['pants_2'] = 10,
+                        ['shoes_1'] = 41, ['shoes_2'] = 10,
+                        ['chain_1'] = 0, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_F@POSH@")
+                    while not HasAnimSetLoaded("MOVE_F@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
                 end
-                SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
+                ClearPedBloodDamage(playerPed)
+                ResetPedVisibleDamage(playerPed)
+                ClearPedLastWeaponDamage(playerPed)
 
                 isBarman = false
-              end
+
             end)
+
         end
         if data.current.value == 'dancer_outfit_7' then
+            
             ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-              local playerPed = GetPlayerPed(-1)
-              if skin.sex == 0 then
-                TriggerEvent('skinchanger:loadSkin', skin)
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
 
-                isBarman = false
-              else
-                SetPedComponentVariation(playerPed, 8, 3, 0, 0) --T-shirt
-                SetPedComponentVariation(playerPed, 11, 111, 6, 0) --Torse
-                SetPedComponentVariation(playerPed, 10, 0, 0, 0) --Decals
-                SetPedComponentVariation(playerPed, 3, 15, 0, 0) --Bras
-                SetPedComponentVariation(playerPed, 4, 63, 6, 0) --Pantalon
-                SetPedComponentVariation(playerPed, 6, 41, 6, 0) --Chaussures
-                SetPedComponentVariation(playerPed, 7, 0, 0, 0) --Collier
+                local playerPed = GetPlayerPed(-1)
 
-                ClearPedBloodDamage(playerPed)
-                ResetPedVisibleDamage(playerPed)
-                ClearPedLastWeaponDamage(playerPed)
+                if skin.sex == 0 then
 
-                RequestAnimSet("MOVE_F@POSH@")
-                while not HasAnimSetLoaded("MOVE_F@POSH@") do
-                  Citizen.Wait(0)
+                    local clothesSkin = {
+                        ['tshirt_1'] = 15, ['tshirt_2'] = 0,
+                        ['torso_1'] = 15, ['torso_2'] = 0,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 40,
+                        ['pants_1'] = 61, ['pants_2'] = 9,
+                        ['shoes_1'] = 16, ['shoes_2'] = 9,
+                        ['chain_1'] = 118, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_M@POSH@")
+                    while not HasAnimSetLoaded("MOVE_M@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_M@POSH@", true)
+
+                else
+
+                    local clothesSkin = {
+                        ['tshirt_1'] = 3, ['tshirt_2'] = 0,
+                        ['torso_1'] = 111, ['torso_2'] = 6,
+                        ['decals_1'] = 0, ['decals_2'] = 0,
+                        ['arms'] = 15,
+                        ['pants_1'] = 63, ['pants_2'] = 6,
+                        ['shoes_1'] = 41, ['shoes_2'] = 6,
+                        ['chain_1'] = 0, ['chain_2'] = 0
+                    }
+                    TriggerEvent('skinchanger:loadClothes', skin, clothesSkin)
+
+                    RequestAnimSet("MOVE_F@POSH@")
+                    while not HasAnimSetLoaded("MOVE_F@POSH@") do
+                      Citizen.Wait(0)
+                    end
+                    SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
                 end
-                SetPedMovementClipset(playerPed, "MOVE_F@POSH@", true)
+
+                ClearPedBloodDamage(playerPed)
+                ResetPedVisibleDamage(playerPed)
+                ClearPedLastWeaponDamage(playerPed)
 
                 isBarman = false
-              end
+
             end)
+
         end
 
       CurrentAction     = 'menu_cloakroom'
