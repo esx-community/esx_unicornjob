@@ -94,7 +94,7 @@ function setClipset(playerPed, clip)
 end
 
 function setUniform(job, playerPed)
-  ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
+  TriggerEvent('skinchanger:getSkin', function(skin)
 
     if skin.sex == 0 then
       if Config.Uniforms[job].male ~= nil then
