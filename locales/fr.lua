@@ -10,6 +10,7 @@ Locales['fr'] = {
     ['dancer_outfit_5']          = 'Tenue de danse 5',
     ['dancer_outfit_6']          = 'Tenue de danse 6',
     ['dancer_outfit_7']          = 'Tenue de danse 7',
+    ['no_outfit']                = 'Il n\'y a pas d\'uniforme à votre taille...',
     ['open_cloackroom']          = 'Appuyez sur ~INPUT_CONTEXT~ pour vous changer',
 
     -- Vault  
