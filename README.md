@@ -1,6 +1,6 @@
-# fxserver-esx_unicornjob
+# esx_unicornjob
 
-FXServer ESX UNICORN JOB
+ESX UNICORN JOB
 
 
 [REQUIREMENTS]
