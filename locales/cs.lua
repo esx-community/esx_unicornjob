@@ -2,7 +2,7 @@ Locales['cs'] = {
   -- Cloakroom
   ['cloakroom'] = 'satna',
   ['citizen_wear'] = 'civilni obleceni',
-  ['barman_outfit'] = 'Barmanske obleceni',
+  ['barman_outfit'] = 'barmanske obleceni',
   ['dancer_outfit_1'] = 'tanecni outfit 1',
   ['dancer_outfit_2'] = 'tanecni outfit 2',
   ['dancer_outfit_3'] = 'tanecni outfit 3',
