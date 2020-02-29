@@ -1,4 +1,4 @@
-ESX                = nil
+ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
@@ -9,11 +9,8 @@ end
 TriggerEvent('esx_phone:registerNumber', 'unicorn', _U('unicorn_customer'), true, true)
 TriggerEvent('esx_society:registerSociety', 'unicorn', 'Unicorn', 'society_unicorn', 'society_unicorn', 'society_unicorn', {type = 'private'})
 
-
-
 RegisterServerEvent('esx_unicornjob:getStockItem')
 AddEventHandler('esx_unicornjob:getStockItem', function(itemName, count)
-
   local _source = source
   local xPlayer = ESX.GetPlayerFromId(_source)
 
@@ -29,22 +26,18 @@ AddEventHandler('esx_unicornjob:getStockItem', function(itemName, count)
     end
 
     TriggerClientEvent('esx:showNotification', xPlayer.source, _U('you_removed') .. count .. ' ' .. item.label)
-
   end)
-
 end)
 
 ESX.RegisterServerCallback('esx_unicornjob:getStockItems', function(source, cb)
-
   TriggerEvent('esx_addoninventory:getSharedInventory', 'society_unicorn', function(inventory)
+
     cb(inventory.items)
   end)
-
 end)
 
 RegisterServerEvent('esx_unicornjob:putStockItems')
 AddEventHandler('esx_unicornjob:putStockItems', function(itemName, count)
-
   local _source = source
   local xPlayer = ESX.GetPlayerFromId(_source)
 
@@ -61,15 +54,11 @@ AddEventHandler('esx_unicornjob:putStockItems', function(itemName, count)
     end
 
     TriggerClientEvent('esx:showNotification', xPlayer.source, _U('you_added') .. count .. ' ' .. item.label)
-
   end)
-
 end)
-
 
 RegisterServerEvent('esx_unicornjob:getFridgeStockItem')
 AddEventHandler('esx_unicornjob:getFridgeStockItem', function(itemName, count)
-
   local _source = source
   local xPlayer = ESX.GetPlayerFromId(_source)
 
@@ -85,22 +74,18 @@ AddEventHandler('esx_unicornjob:getFridgeStockItem', function(itemName, count)
     end
 
     TriggerClientEvent('esx:showNotification', xPlayer.source, _U('you_removed') .. count .. ' ' .. item.label)
-
   end)
-
 end)
 
 ESX.RegisterServerCallback('esx_unicornjob:getFridgeStockItems', function(source, cb)
-
   TriggerEvent('esx_addoninventory:getSharedInventory', 'society_unicorn_fridge', function(inventory)
+
     cb(inventory.items)
   end)
-
 end)
 
 RegisterServerEvent('esx_unicornjob:putFridgeStockItems')
 AddEventHandler('esx_unicornjob:putFridgeStockItems', function(itemName, count)
-
   local _source = source
   local xPlayer = ESX.GetPlayerFromId(_source)
 
@@ -117,15 +102,11 @@ AddEventHandler('esx_unicornjob:putFridgeStockItems', function(itemName, count)
     end
 
     TriggerClientEvent('esx:showNotification', xPlayer.source, _U('you_added') .. count .. ' ' .. item.label)
-
   end)
-
 end)
-
 
 RegisterServerEvent('esx_unicornjob:buyItem')
 AddEventHandler('esx_unicornjob:buyItem', function(itemName, price, itemLabel)
-
     local _source = source
     local xPlayer = ESX.GetPlayerFromId(_source)
     local limit = xPlayer.getInventoryItem(itemName).limit
@@ -147,24 +128,23 @@ AddEventHandler('esx_unicornjob:buyItem', function(itemName, price, itemLabel)
     else
         TriggerClientEvent('esx:showNotification', _source, _U('not_enough'))
     end
-
 end)
 
 
 RegisterServerEvent('esx_unicornjob:craftingCoktails')
 AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
-
     local _source = source
     local _itemValue = itemValue
+
     TriggerClientEvent('esx:showNotification', _source, _U('assembling_cocktail'))
 
     if _itemValue == 'jagerbomb' then
         SetTimeout(10000, function()        
 
-            local xPlayer           = ESX.GetPlayerFromId(_source)
+            local xPlayer = ESX.GetPlayerFromId(_source)
 
-            local alephQuantity     = xPlayer.getInventoryItem('energy').count
-            local bethQuantity      = xPlayer.getInventoryItem('jager').count
+            local alephQuantity = xPlayer.getInventoryItem('energy').count
+            local bethQuantity = xPlayer.getInventoryItem('jager').count
 
             if alephQuantity < 2 then
                 TriggerClientEvent('esx:showNotification', _source, _U('not_enough') .. _U('energy') .. '~w~')
@@ -183,7 +163,6 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('jagerbomb', 1)
                 end
             end
-
         end)
     end
 
@@ -217,17 +196,16 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('golem', 1)
                 end
             end
-
         end)
     end
     
     if _itemValue == 'whiskycoca' then
         SetTimeout(10000, function()        
 
-            local xPlayer           = ESX.GetPlayerFromId(_source)
+            local xPlayer = ESX.GetPlayerFromId(_source)
 
-            local alephQuantity     = xPlayer.getInventoryItem('soda').count
-            local bethQuantity      = xPlayer.getInventoryItem('whisky').count
+            local alephQuantity = xPlayer.getInventoryItem('soda').count
+            local bethQuantity = xPlayer.getInventoryItem('whisky').count
 
             if alephQuantity < 2 then
                 TriggerClientEvent('esx:showNotification', _source, _U('not_enough') .. _U('soda') .. '~w~')
@@ -246,17 +224,16 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('whiskycoca', 1)
                 end
             end
-
         end)
     end
 
     if _itemValue == 'rhumcoca' then
         SetTimeout(10000, function()        
 
-            local xPlayer           = ESX.GetPlayerFromId(_source)
+            local xPlayer = ESX.GetPlayerFromId(_source)
 
-            local alephQuantity     = xPlayer.getInventoryItem('soda').count
-            local bethQuantity      = xPlayer.getInventoryItem('rhum').count
+            local alephQuantity = xPlayer.getInventoryItem('soda').count
+            local bethQuantity = xPlayer.getInventoryItem('rhum').count
 
             if alephQuantity < 2 then
                 TriggerClientEvent('esx:showNotification', _source, _U('not_enough') .. _U('soda') .. '~w~')
@@ -275,18 +252,17 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('rhumcoca', 1)
                 end
             end
-
         end)
     end
 
     if _itemValue == 'vodkaenergy' then
         SetTimeout(10000, function()        
 
-            local xPlayer           = ESX.GetPlayerFromId(_source)
+            local xPlayer = ESX.GetPlayerFromId(_source)
 
-            local alephQuantity     = xPlayer.getInventoryItem('energy').count
-            local bethQuantity      = xPlayer.getInventoryItem('vodka').count
-            local gimelQuantity     = xPlayer.getInventoryItem('ice').count
+            local alephQuantity = xPlayer.getInventoryItem('energy').count
+            local bethQuantity = xPlayer.getInventoryItem('vodka').count
+            local gimelQuantity = xPlayer.getInventoryItem('ice').count
 
             if alephQuantity < 2 then
                 TriggerClientEvent('esx:showNotification', _source, _U('not_enough') .. _U('energy') .. '~w~')
@@ -309,18 +285,17 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('vodkaenergy', 1)
                 end
             end
-
         end)
     end
 
     if _itemValue == 'vodkafruit' then
         SetTimeout(10000, function()        
 
-            local xPlayer           = ESX.GetPlayerFromId(_source)
+            local xPlayer = ESX.GetPlayerFromId(_source)
 
-            local alephQuantity     = xPlayer.getInventoryItem('jusfruit').count
-            local bethQuantity      = xPlayer.getInventoryItem('vodka').count
-            local gimelQuantity     = xPlayer.getInventoryItem('ice').count
+            local alephQuantity = xPlayer.getInventoryItem('jusfruit').count
+            local bethQuantity = xPlayer.getInventoryItem('vodka').count
+            local gimelQuantity = xPlayer.getInventoryItem('ice').count
 
             if alephQuantity < 2 then
                 TriggerClientEvent('esx:showNotification', _source, _U('not_enough') .. _U('jusfruit') .. '~w~')
@@ -343,7 +318,6 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('vodkafruit', 1) 
                 end
             end
-
         end)
     end
 
@@ -377,7 +351,6 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('rhumfruit', 1)
                 end
             end
-
         end)
     end
 
@@ -406,7 +379,6 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('teqpaf', 1)
                 end
             end
-
         end)
     end
 
@@ -445,19 +417,18 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('mojito', 1)
                 end
             end
-
         end)
     end
 
     if _itemValue == 'mixapero' then
         SetTimeout(10000, function()        
 
-            local xPlayer           = ESX.GetPlayerFromId(_source)
+            local xPlayer = ESX.GetPlayerFromId(_source)
 
-            local alephQuantity     = xPlayer.getInventoryItem('bolcacahuetes').count
-            local bethQuantity      = xPlayer.getInventoryItem('bolnoixcajou').count
-            local gimelQuantity     = xPlayer.getInventoryItem('bolpistache').count
-            local daletQuantity     = xPlayer.getInventoryItem('bolchips').count
+            local alephQuantity = xPlayer.getInventoryItem('bolcacahuetes').count
+            local bethQuantity = xPlayer.getInventoryItem('bolnoixcajou').count
+            local gimelQuantity = xPlayer.getInventoryItem('bolpistache').count
+            local daletQuantity = xPlayer.getInventoryItem('bolchips').count
 
             if alephQuantity < 2 then
                 TriggerClientEvent('esx:showNotification', _source, _U('not_enough') .. _U('bolcacahuetes') .. '~w~')
@@ -484,19 +455,18 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('mixapero', 1)
                 end
             end
-
         end)
     end
 
     if _itemValue == 'metreshooter' then
         SetTimeout(10000, function()        
 
-            local xPlayer           = ESX.GetPlayerFromId(_source)
+            local xPlayer = ESX.GetPlayerFromId(_source)
 
-            local alephQuantity     = xPlayer.getInventoryItem('jager').count
-            local bethQuantity      = xPlayer.getInventoryItem('vodka').count
-            local gimelQuantity     = xPlayer.getInventoryItem('whisky').count
-            local daletQuantity     = xPlayer.getInventoryItem('tequila').count
+            local alephQuantity = xPlayer.getInventoryItem('jager').count
+            local bethQuantity = xPlayer.getInventoryItem('vodka').count
+            local gimelQuantity = xPlayer.getInventoryItem('whisky').count
+            local daletQuantity = xPlayer.getInventoryItem('tequila').count
 
             if alephQuantity < 2 then
                 TriggerClientEvent('esx:showNotification', _source, _U('not_enough') .. _U('jager') .. '~w~')
@@ -523,7 +493,6 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('metreshooter', 1)
                 end
             end
-
         end)
     end
 
@@ -557,12 +526,9 @@ AddEventHandler('esx_unicornjob:craftingCoktails', function(itemValue)
                     xPlayer.addInventoryItem('jagercerbere', 1)
                 end
             end
-
         end)
     end
-
 end)
-
 
 ESX.RegisterServerCallback('esx_unicornjob:getVaultWeapons', function(source, cb)
 
@@ -575,13 +541,10 @@ ESX.RegisterServerCallback('esx_unicornjob:getVaultWeapons', function(source, cb
     end
 
     cb(weapons)
-
   end)
-
 end)
 
 ESX.RegisterServerCallback('esx_unicornjob:addVaultWeapon', function(source, cb, weaponName)
-
   local _source = source
   local xPlayer = ESX.GetPlayerFromId(_source)
 
@@ -605,22 +568,16 @@ ESX.RegisterServerCallback('esx_unicornjob:addVaultWeapon', function(source, cb,
     end
 
     if not foundWeapon then
-      table.insert(weapons, {
-        name  = weaponName,
-        count = 1
-      })
+      table.insert(weapons, {name  = weaponName, count = 1})
     end
 
      store.set('weapons', weapons)
 
      cb()
-
   end)
-
 end)
 
 ESX.RegisterServerCallback('esx_unicornjob:removeVaultWeapon', function(source, cb, weaponName)
-
   local _source = source
   local xPlayer = ESX.GetPlayerFromId(_source)
 
@@ -644,28 +601,19 @@ ESX.RegisterServerCallback('esx_unicornjob:removeVaultWeapon', function(source, 
     end
 
     if not foundWeapon then
-      table.insert(weapons, {
-        name  = weaponName,
-        count = 0
-      })
+      table.insert(weapons, {name = weaponName, count = 0})
     end
 
      store.set('weapons', weapons)
 
      cb()
-
   end)
-
 end)
 
 ESX.RegisterServerCallback('esx_unicornjob:getPlayerInventory', function(source, cb)
-
   local _source = source
   local xPlayer = ESX.GetPlayerFromId(_source)
-  local items      = xPlayer.inventory
+  local items = xPlayer.inventory
 
-  cb({
-    items      = items
-  })
-
+  cb({items = items})
 end)
