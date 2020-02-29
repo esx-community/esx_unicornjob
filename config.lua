@@ -1,23 +1,21 @@
-Config                            = {}
-Config.DrawDistance               = 100.0
+Config = {}
+Config.DrawDistance = 100.0
 
-Config.EnablePlayerManagement     = true
+Config.EnablePlayerManagement = true
 Config.EnableSocietyOwnedVehicles = false
-Config.EnableVaultManagement      = true
-Config.EnableHelicopters          = false
-Config.EnableMoneyWash            = true
-Config.MaxInService               = -1
-Config.Locale                     = 'fr'
+Config.EnableVaultManagement = true
+Config.EnableHelicopters = false
+Config.EnableMoneyWash = true
+Config.MaxInService = -1
+Config.Locale = 'fr'
 
-Config.MissCraft                  = 10 -- %
-
+Config.MissCraft = 10 -- %
 
 Config.AuthorizedVehicles = {
     { name = 'rentalbus',  label = 'Vanilla Unicorn Bus' },
 }
 
 Config.Blips = {
-    
     Blip = {
       Pos     = { x = 129.246, y = -1299.363, z = 29.501 },
       Sprite  = 121,
@@ -25,11 +23,9 @@ Config.Blips = {
       Scale   = 1.2,
       Colour  = 27,
     },
-
 }
 
 Config.Zones = {
-
     Cloakrooms = {
         Pos   = { x = 105.111, y = -1303.221, z = 27.788 },
         Size  = { x = 1.5, y = 1.5, z = 1.0 },
@@ -94,7 +90,6 @@ Config.Zones = {
 
 -----------------------
 -------- SHOPS --------
-
     Flacons = {
         Pos   = { x = -2955.242, y = 385.897, z = 14.041 },
         Size  = { x = 1.6, y = 1.6, z = 1.0 },
@@ -150,13 +145,10 @@ Config.Zones = {
             { name = 'menthe',  label = _U('menthe'),   price = 2 }
         },
     },
-
 }
-
 
 -----------------------
 ----- TELEPORTERS -----
-
 Config.TeleportZones = {
   EnterBuilding = {
     Pos       = { x = 132.608, y = -1293.978, z = 28.269 },
@@ -197,9 +189,7 @@ Config.TeleportZones = {
 ]]--
 }
 
-
 -- CHECK SKINCHANGER CLIENT MAIN.LUA for matching elements
-
 Config.Uniforms = {
   barman_outfit = {
     male = {
@@ -219,8 +209,7 @@ Config.Uniforms = {
         ['pants_1'] = 44,   ['pants_2'] = 4,
         ['shoes_1'] = 0,    ['shoes_2'] = 0,
         ['chain_1'] = 0,    ['chain_2'] = 2
-    }
-  },
+    }},
   dancer_outfit_1 = {
     male = {
         ['tshirt_1'] = 15,  ['tshirt_2'] = 0,
@@ -239,8 +228,7 @@ Config.Uniforms = {
         ['pants_1'] = 22,   ['pants_2'] = 0,
         ['shoes_1'] = 18,   ['shoes_2'] = 0,
         ['chain_1'] = 61,   ['chain_2'] = 1
-    }
-  },
+    }},
   dancer_outfit_2 = {
     male = {
         ['tshirt_1'] = 15,  ['tshirt_2'] = 0,
@@ -259,8 +247,7 @@ Config.Uniforms = {
         ['pants_1'] = 20,   ['pants_2'] = 2,
         ['shoes_1'] = 18,   ['shoes_2'] = 2,
         ['chain_1'] = 0,    ['chain_2'] = 0
-    }
-  },
+    }},
   dancer_outfit_3 = {
     male = {
         ['tshirt_1'] = 15,  ['tshirt_2'] = 0,
@@ -279,8 +266,7 @@ Config.Uniforms = {
         ['pants_1'] = 19,   ['pants_2'] = 1,
         ['shoes_1'] = 19,   ['shoes_2'] = 3,
         ['chain_1'] = 0,    ['chain_2'] = 0
-    }
-  },
+    }},
   dancer_outfit_4 = {
     male = {
         ['tshirt_1'] = 15,  ['tshirt_2'] = 0,
@@ -299,8 +285,7 @@ Config.Uniforms = {
         ['pants_1'] = 63,   ['pants_2'] = 11,
         ['shoes_1'] = 41,   ['shoes_2'] = 11,
         ['chain_1'] = 0,    ['chain_2'] = 0
-    }
-  },
+    }},
   dancer_outfit_5 = {
     male = {
         ['tshirt_1'] = 15,  ['tshirt_2'] = 0,
@@ -319,8 +304,7 @@ Config.Uniforms = {
         ['pants_1'] = 63,   ['pants_2'] = 2,
         ['shoes_1'] = 41,   ['shoes_2'] = 2,
         ['chain_1'] = 0,    ['chain_2'] = 0
-    }
-  },
+    }},
   dancer_outfit_6 = {
     male = {
         ['tshirt_1'] = 15,  ['tshirt_2'] = 0,
@@ -339,8 +323,7 @@ Config.Uniforms = {
         ['pants_1'] = 63,   ['pants_2'] = 10,
         ['shoes_1'] = 41,   ['shoes_2'] = 10,
         ['chain_1'] = 0,    ['chain_2'] = 0
-    }
-  },
+    }},
   dancer_outfit_7 = {
     male = {
         ['tshirt_1'] = 15,  ['tshirt_2'] = 0,
@@ -359,6 +342,5 @@ Config.Uniforms = {
         ['pants_1'] = 63,   ['pants_2'] = 6,
         ['shoes_1'] = 41,   ['shoes_2'] = 6,
         ['chain_1'] = 0,    ['chain_2'] = 0
-    }
-  }
+    }}
 }
